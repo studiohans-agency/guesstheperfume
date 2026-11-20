@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
   const desc = row
     ? `${row.right_count}/${row.total} bottles in ${MODES[row.mode] || 'the game'}, ranked "${row.tier}". Think your nose can beat it?`
     : 'A fragrance quiz with the label hidden. Name the house or the exact perfume in ten rounds, try the daily bottle and climb the leaderboard.';
-  const image = row ? `${SUPABASE}/storage/v1/object/public/cards/${row.id}.jpg` : `${GAME}og-image-v2.png`;
+  const image = row ? `${SUPABASE}/storage/v1/object/public/cards/${row.id}.jpg` : `${GAME}og-image-v3.png`;
   const url = row ? `${GAME}${row.id}` : GAME;
   const target = `${GAME}?ref=share`;
 
