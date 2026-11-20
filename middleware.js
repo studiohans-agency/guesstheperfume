@@ -8,7 +8,8 @@ export const config = { matcher: '/' };
 
 export default function middleware(request) {
   const ua = request.headers.get('user-agent') || '';
-  if (!BOTS.test(ua)) return;
+  const forced = new URL(request.url).searchParams.has('preview');
+  if (!forced && !BOTS.test(ua)) return;
   return new Response(PREVIEW, {
     headers: {
       'content-type': 'text/html; charset=utf-8',
